@@ -7,7 +7,7 @@ const columns = [
     { label: 'Creditor', fieldName: 'creditorName', editable: true },
     { label: 'First Name', fieldName: 'firstName', editable: true },
     { label: 'Last Name', fieldName: 'lastName', editable: true },
-    { label: 'Min Pay %', fieldName: 'minPaymentPercentage', type: 'percent', editable: true },
+    { label: 'Min Pay %', fieldName: 'minPaymentPercentage', type: 'percent', editable: true }, //table/formatted-number formatting is off by a factor of 100 (100 is displaying as 10,000%)
     { label: 'Balance', fieldName: 'balance', type: 'currency', editable: true },
 
 ];
