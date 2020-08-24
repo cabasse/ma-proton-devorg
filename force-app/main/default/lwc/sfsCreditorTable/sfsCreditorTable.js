@@ -68,12 +68,10 @@ export default class SfsCreditorTable extends LightningElement {
         let data = JSON.parse(JSON.stringify(this.data));
 
         let newData = [];
-        let i = 1;
 
         data.forEach((row) => {
             if (!row.checked) {            
                 newData.push(row);
-                i++;
             }
         });
         this.data = newData;
