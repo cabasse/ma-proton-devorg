@@ -5,7 +5,9 @@ public with sharing class SfsDataRetrieve {
 
         HttpRequest req = new HttpRequest();
 
-        req.setEndpoint('https://raw.githubusercontent.com/StrategicFS/Recruitment/master/data.json');
+        External_Data_Sources__mdt sourceMdt = [select Source_URL__c from External_Data_Sources__mdt where DeveloperName = 'SFS_Creditor_Table'];
+
+        req.setEndpoint(sourceMdt.Source_URL__c);
         req.setMethod('GET');
 
         Http http = new Http();
