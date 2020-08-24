@@ -27,9 +27,17 @@ export default class SfsCreditorTable extends LightningElement {
             console.error(error);
         }
         if (data) {
-            this.data = JSON.parse(data);
+            this.data = this.fixPercentFormatting(JSON.parse(data));
             this.totalRowCount = Object.keys(this.data).length;
         }
+    }
+
+    fixPercentFormatting(data) {
+        data.forEach((row) => {
+            if (row.minPaymentPercentage > 1)  row.minPaymentPercentage = row.minPaymentPercentage * .01;
+        });
+        console.log(data);
+        return data;
     }
 
     handleClick(event){
@@ -119,7 +127,7 @@ export default class SfsCreditorTable extends LightningElement {
             }
 
         });
-        this.data = newData;
+        this.data = this.fixPercentFormatting(newData);
         this.draftValues = [];
 
     }
