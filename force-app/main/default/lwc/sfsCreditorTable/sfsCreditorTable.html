@@ -1,0 +1,66 @@
+<template>
+    <lightning-card>
+        <div class="slds-m-around_xx-large">
+
+            <div>
+                <div class="slds-p-around_medium slds-box">
+                    <lightning-tile label="Creditor Table" type="media">
+                        <lightning-icon slot="media" icon-name="utility:table"></lightning-icon>
+                        <!-- <p class="slds-truncate" title="7 Members">7 Members</p> -->
+                    </lightning-tile>
+                </div>
+                <article class="slds-card">
+
+                    <div class="slds-card__body slds-card__body_inner slds-box">
+                        <lightning-datatable
+                            key-field="id"
+                            data={data}
+                            columns={columns}
+                            onrowselection={handleRowAction}
+                            onsave={handleSave}
+                            draft-values={draftValues}>
+                        </lightning-datatable>                        
+                    </div>
+                    <div class="slds-box">
+                        <div class="slds-grid slds-gutters slds-wrap slds-grid_align-spread">
+                            <div class="slds-col slds-size_1-of-1 slds-clearfix">
+                                <div class="slds-float_right slds-p-right_large">
+                                    Total:&nbsp;<lightning-formatted-number value={selectedTotal} format-style="currency" currency-code="USD"></lightning-formatted-number>
+                                </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-p-top_x-small slds-p-bottom_x-small">
+                                <div class="horizontal-line"></div>
+
+                            </div>
+                            <div class="slds-col slds-size_1-of-4">
+                                <div class="slds-p-left_x-large">
+                                    Total Rows: {totalRowCount}
+                                </div>  
+                            </div>
+                            <div class="slds-col slds-size_1-of-4">
+                                <div class="slds-p-left_x-large">
+                                    Selected Rows: {checkedRowCount}
+                                </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2"></div>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                </article>
+
+
+                <br/>
+                <lightning-button-group>
+                    <lightning-button label="Add Debt" onclick={handleClick}></lightning-button>
+                    <lightning-button label="Remove Debt" onclick={handleClick}></lightning-button>
+                </lightning-button-group>
+            </div>            
+        </div>
+    </lightning-card>
+    
+</template>
