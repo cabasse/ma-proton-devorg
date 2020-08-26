@@ -68,7 +68,6 @@ public with sharing class AccountTriggerHandler {
 
     }
 
-
     public static boolean lookForRelatedOpp(string oppName, list<opportunity> relatedOppList) {
 
         boolean oppFound = false;
@@ -80,7 +79,5 @@ public with sharing class AccountTriggerHandler {
         return oppFound;
 
     }
-
-
 
 }
